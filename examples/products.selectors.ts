@@ -4,7 +4,7 @@ const getProducts = (state) => state.shop.products || [];
 const getFilters = (state) => state.shop.filters || {};
 
 const filterBySearch = (search) => (products) => {
-    const regex = new RegExp(`.*${search}.*`, "gi");
+    const regex = new RegExp(`.*${search}.*`, "i");
     return products.filter((product) => {
         regex.test(product.name);
     });
