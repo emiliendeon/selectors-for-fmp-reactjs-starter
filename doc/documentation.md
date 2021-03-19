@@ -1,0 +1,1 @@
+[See the reselect official documentation for more details](https://github.com/reduxjs/reselect)
