@@ -39,13 +39,16 @@ const combineFilters = (...filterFunctions) => (data) => {
 
 let ProductsSelectors: any = {};
 
-ProductsSelectors.applyFilters = createSelector(getProducts, getFilters, (products, filters) =>
-    combineFilters(
-        filterBySearch(filters.search),
-        filterByAvailability(true),
-        filterByPrice({ min: filters.price.min, max: filters.price.max }),
-        sortByPrice(filters.price.sort)
-    )(products)
+ProductsSelectors.applyFilters = createSelector(
+    getProducts, 
+    getFilters, 
+    (products, filters) =>
+        combineFilters(
+            filterBySearch(filters.search),
+            filterByAvailability(true),
+            filterByPrice({ min: filters.price.min, max: filters.price.max }),
+            sortByPrice(filters.price.sort)
+        )(products)
 );
 
 export default ProductsSelectors;
