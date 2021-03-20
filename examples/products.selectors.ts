@@ -51,4 +51,7 @@ ProductsSelectors.applyFilters = createSelector(
         )(products)
 );
 
+// Usage :
+// const filteredProducts = useSelector(state => ProductsSelectors.applyFilters(state));
+
 export default ProductsSelectors;
