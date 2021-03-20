@@ -27,7 +27,7 @@ const sortByPrice = (sortMode) => (products) => {
     return products;
 };
 
-const combineFilters = (...filterFunctions) => (data) => {
+const composeFilters = (...filterFunctions) => (data) => {
     let newData = data;
     for (const filterFunction of filterFunctions) {
         if (filterFunction) {
@@ -43,7 +43,7 @@ ProductsSelectors.applyFilters = createSelector(
     getProducts, 
     getFilters, 
     (products, filters) =>
-        combineFilters(
+        composeFilters(
             filterBySearch(filters.search),
             filterByAvailability(true),
             filterByPrice({ min: filters.price.min, max: filters.price.max }),
